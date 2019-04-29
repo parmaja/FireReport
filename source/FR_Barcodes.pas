@@ -193,10 +193,10 @@ var
 
 begin
   BeginDraw(Canvas);
-  Memo1.Assign(Memo);
+  Contents.Assign(Memo);
 
-  if Memo1.Count > 0 then
-    Txt := Memo1.Strings[0] else
+  if Contents.Count > 0 then
+    Txt := Contents.Strings[0] else
     Txt := cbDefaultText;
 
   FBarcode.Angle := Param.cAngle;
@@ -295,15 +295,15 @@ end;
 procedure TfrBarcodeView.Print(Stream: TStream);
 begin
   BeginDraw(Canvas);
-  Memo1.Assign(Memo);
-  Report.InternalOnEnterRect(Memo1, Self);
+  Contents.Assign(Memo);
+  Report.InternalOnEnterRect(Contents, Self);
 
   if not Visible then
     Exit;
 
-  if Memo1.Count > 0 then
-    if (Length(Memo1[0]) > 0) and (Memo1[0][1] = '[') then
-      Memo1[0] := frParser.Calc(Memo1[0]);
+  if Contents.Count > 0 then
+    if (Length(Contents[0]) > 0) and (Contents[0][1] = '[') then
+      Contents[0] := frParser.Calc(Contents[0]);
   Stream.Write(Typ, 1);
   frWriteString(Stream, ClassName);
   SaveToStream(Stream);

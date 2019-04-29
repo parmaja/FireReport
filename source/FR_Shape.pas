@@ -109,7 +109,7 @@ var
   FillC: Integer;
 begin
   BeginDraw(Canvas);
-  Memo1.Assign(Memo);
+  Contents.Assign(Memo);
   CalcGaps;
   FillC := FillColor;
   FillColor := clNone;

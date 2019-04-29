@@ -160,7 +160,7 @@ type
     Canvas: TCanvas;
     DRect: TRect;
     gapx, gapy: Integer;
-    Memo1: TStringList;
+    Contents: TStringList;
     FDataSet: TDataSet;
     FField: string;
     olddy: Integer;
@@ -919,7 +919,7 @@ implementation
 uses
   JPEG,
   FR_Format, FR_Printer, FR_Utils, FR_Consts,
-  FR_Barcodes, FR_Shape, FR_CheckBox, FR_E_RTF, FR_E_TXT, FR_E_HTM, FR_E_CSV;
+  FR_Design, FR_Barcodes, FR_Shape, FR_CheckBox, FR_E_RTF, FR_E_TXT, FR_E_HTM, FR_E_CSV;
 
 type
   TfrStdFunctionLibrary = class(TfrFunctionLibrary)
@@ -1091,7 +1091,7 @@ begin
   FReport := AReport;
   Parent := nil;
   Memo := TStringList.Create;
-  Memo1 := TStringList.Create;
+  Contents := TStringList.Create;
   FrameWidth := 1;
   FrameColor := clBlack;
   FillColor := clNone;
@@ -1107,7 +1107,7 @@ end;
 destructor TfrView.Destroy;
 begin
   Memo.Free;
-  Memo1.Free;
+  Contents.Free;
   inherited;
 end;
 
@@ -1310,8 +1310,8 @@ end;
 procedure TfrView.Print(Stream: TStream);
 begin
   BeginDraw(Canvas);
-  Memo1.Assign(Memo);
-  Report.InternalOnEnterRect(Memo1, Self);
+  Contents.Assign(Memo);
+  Report.InternalOnEnterRect(Contents, Self);
 
   if not Visible then
     Exit;
@@ -1389,7 +1389,7 @@ begin
       frWriteMemo(Stream, Memo);
     end
     else
-      frWriteMemo(Stream, Memo1);
+      frWriteMemo(Stream, Contents);
     if StreamMode = smDesigning then
     begin
       Write(Visible, 2);
@@ -1558,17 +1558,17 @@ var
     until i = j;
   end;
 begin
-  Memo1.Clear;
+  Contents.Clear;
   for i := 0 to Memo.Count - 1 do
   begin
     s := Memo[i];
     if Length(s) > 0 then
     begin
       GetData(s);
-      Memo1.Text := Memo1.Text + s;
+      Contents.Text := Contents.Text + s;
     end
     else
-      Memo1.Add('');
+      Contents.Add('');
   end;
 end;
 
@@ -1733,11 +1733,11 @@ var
     size := y + gapy;
     size1 := -WCanvas.Font.Height + LineSpacing;
     maxwidth := dx - gapx - gapx;
-    for i := 0 to Memo1.Count - 1 do
+    for i := 0 to Contents.Count - 1 do
       if (Flags and flWordWrap) <> 0 then
-        WrapLine(Memo1[i])
+        WrapLine(Contents[i])
       else
-        OutLine(Memo1[i] + #1);
+        OutLine(Contents[i] + #1);
     VHeight := size - y + gapy;
     TextHeight := size1;
   end;
@@ -1752,11 +1752,11 @@ var
     size := x + gapx;
     size1 := -WCanvas.Font.Height + LineSpacing;
     maxwidth := dy - gapy - gapy;
-    for i := 0 to Memo1.Count - 1 do
+    for i := 0 to Contents.Count - 1 do
       if (Flags and flWordWrap) <> 0 then
-        WrapLine(Memo1[i])
+        WrapLine(Contents[i])
       else
-        OutLine(Memo1[i]);
+        OutLine(Contents[i]);
     SelectObject(WCanvas.Handle, oldh);
     DeleteObject(h);
     VHeight := size - x + gapx;
@@ -1876,8 +1876,8 @@ var
     cury := y + gapy;
     th := -Canvas.Font.Height + Round(LineSpacing * ScaleY);
     CurStrNo := 0;
-    for i := 0 to Memo1.Count - 1 do
-      if OutLine(Memo1[i]) then
+    for i := 0 to Contents.Count - 1 do
+      if OutLine(Contents[i]) then
         break;
   end;
 
@@ -1935,8 +1935,8 @@ var
     curx := x + gapx;
     th := -Canvas.Font.Height + Round(LineSpacing * ScaleY);
     CurStrNo := 0;
-    for i := 0 to Memo1.Count - 1 do
-      OutLine(Memo1[i]);
+    for i := 0 to Contents.Count - 1 do
+      OutLine(Contents[i]);
     SelectObject(Canvas.Handle, oldh);
     DeleteObject(h);
   end;
@@ -2019,22 +2019,22 @@ begin
   end;
 
   Streaming := False;
-  Memo1.Assign(Memo);
+  Contents.Assign(Memo);
 
   OldScaleX := ScaleX; OldScaleY := ScaleY;
   ScaleX := 1; ScaleY := 1;
   CalcGaps;
   ScaleX := OldScaleX; ScaleY := OldScaleY;
   RestoreCoord;
-  if Memo1.Count > 0 then
+  if Contents.Count > 0 then
   begin
-    NeedWrap := Pos(#1, Memo1.Text) = 0;
-    if Memo1[Memo1.Count - 1] = #1 then
-      Memo1.Delete(Memo1.Count - 1);
+    NeedWrap := Pos(#1, Contents.Text) = 0;
+    if Contents[Contents.Count - 1] = #1 then
+      Contents.Delete(Contents.Count - 1);
     if NeedWrap then
     begin
       WrapMemo;
-      Memo1.Assign(SMemo);
+      Contents.Assign(SMemo);
     end;
   end;
 
@@ -2043,7 +2043,7 @@ begin
     ShowBackground;
   if not Exporting then
     ShowFrame;
-  if Memo1.Count > 0 then
+  if Contents.Count > 0 then
     ShowMemo;
   RestoreCoord;
 end;
@@ -2063,10 +2063,10 @@ begin
   if (DrawMode = drAll) and (Assigned(Report.OnEnterRect) or
     ((FDataSet <> nil) and frIsBlob(TField(FDataSet.FindField(FField))))) then
   begin
-    Memo1.Assign(Memo);
-    s := Memo1.Text;
-    Report.InternalOnEnterRect(Memo1, Self);
-    if s <> Memo1.Text then
+    Contents.Assign(Memo);
+    s := Contents.Text;
+    Report.InternalOnEnterRect(Contents, Self);
+    if s <> Contents.Text then
       CanExpandVar := False;
   end
   else if DrawMode = drAfterCalcHeight then
@@ -2088,11 +2088,11 @@ begin
   begin
     CalcGaps;
     ShowMemo;
-    SMemo.Assign(Memo1);
-    while Memo1.Count > CurStrNo do
-      Memo1.Delete(CurStrNo);
-    if Pos(#1, Memo1.Text) = 0 then
-      Memo1.Add(#1);
+    SMemo.Assign(Contents);
+    while Contents.Count > CurStrNo do
+      Contents.Delete(CurStrNo);
+    if Pos(#1, Contents.Text) = 0 then
+      Contents.Add(#1);
   end;
 
   Stream.Write(Typ, 1);
@@ -2101,9 +2101,9 @@ begin
   SaveToStream(Stream);
   if DrawMode = drPart then
   begin
-    Memo1.Assign(SMemo);
+    Contents.Assign(SMemo);
     for i := 0 to CurStrNo - 1 do
-      Memo1.Delete(0);
+      Contents.Delete(0);
   end;
   Font.Assign(OldFont);
   OldFont.Free;
@@ -2134,10 +2134,10 @@ begin
     Exit;
 
   CanExpandVar := True;
-  Memo1.Assign(Memo);
-  s := Memo1.Text;
-  Report.InternalOnEnterRect(Memo1, Self);
-  if s <> Memo1.Text then
+  Contents.Assign(Memo);
+  s := Contents.Text;
+  Report.InternalOnEnterRect(Contents, Self);
+  if s <> Contents.Text then
     CanExpandVar := False;
   if CanExpandVar then
     ExpandVariables;
@@ -2147,7 +2147,7 @@ begin
   OldFill := FillColor;
 
   CalcGaps;
-  if Memo1.Count <> 0 then
+  if Contents.Count <> 0 then
   begin
     WrapMemo;
     Result := VHeight;
@@ -2164,7 +2164,7 @@ end;
 
 function TfrMemoView.RemainHeight: Integer;
 begin
-  Result := Memo1.Count * TextHeight;
+  Result := Contents.Count * TextHeight;
 end;
 
 procedure TfrMemoView.LoadFromStream(Stream: TStream);
@@ -2211,7 +2211,7 @@ end;
 
 procedure TfrMemoView.GetBlob(b: TField);
 begin
-  Memo1.Assign(b);
+  Contents.Assign(b);
 end;
 
 procedure TfrMemoView.DefinePopupMenu(frDesigner: TfrReportDesigner; Popup: TPopupMenu);
@@ -3499,7 +3499,7 @@ begin
       if t is TfrMemoView then
       begin
         TfrMemoView(t).CalcHeight; // wraps a memo onto separate lines
-        t.Memo1.Assign(SMemo);
+        t.Contents.Assign(SMemo);
       end;
     end;
     repeat
@@ -5043,7 +5043,7 @@ begin
       Stream.Write(t.Typ, 1);
       if t.Typ = gtAddIn then
         frWriteString(Stream, t.ClassName);
-      t.Memo1.Assign(t.Memo);
+      t.Contents.Assign(t.Memo);
       t.SaveToStream(Stream);
     end;
   end;

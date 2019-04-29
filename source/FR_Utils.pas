@@ -71,7 +71,6 @@ end;
 
 procedure frReadMemo(Stream: TStream; l: TStrings);
 var
-  s: String;
   b: Byte;
   n: Word;
 begin
