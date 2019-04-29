@@ -1,0 +1,86 @@
+package FireReport;
+
+{$R *.res}
+{$R *.otares}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS OFF}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'FireReport Components'}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  vcl,
+  rtl,
+  dbrtl,
+  vcldb,
+  vclimg;
+
+contains
+  FR_BarcodeUtils in '..\source\FR_BarcodeUtils.pas',
+  FR_Barcodes in '..\source\FR_Barcodes.pas',
+  FR_Classes in '..\source\FR_Classes.pas',
+  FR_Consts in '..\source\FR_Consts.pas',
+  FR_Printer in '..\source\FR_Printer.pas',
+  FR_Parser in '..\source\FR_Parser.pas',
+  FR_About in '..\source\FR_About.pas',
+  FR_BandEditor in '..\source\FR_BandEditor.pas',
+  FR_BandType in '..\source\FR_BandType.pas',
+  FR_CheckBox in '..\source\FR_CheckBox.pas',
+  FR_Color in '..\source\FR_Color.pas',
+  FR_DBDataset in '..\source\FR_DBDataset.pas',
+  FR_Design in '..\source\FR_Design.pas',
+  FR_Dataset in '..\source\FR_Dataset.pas',
+  FR_DesignOptions in '..\source\FR_DesignOptions.pas',
+  FR_MemoEditor in '..\source\FR_MemoEditor.pas',
+  FR_E_txt in '..\source\FR_E_txt.pas',
+  FR_E_rtf in '..\source\FR_E_rtf.pas',
+  FR_E_csv in '..\source\FR_E_csv.pas',
+  FR_E_htm in '..\source\FR_E_htm.pas',
+  FR_VariableEditor in '..\source\FR_VariableEditor.pas',
+  FR_Fields in '..\source\FR_Fields.pas',
+  FR_Format in '..\source\FR_Format.pas',
+  FR_PictureEditor in '..\source\FR_PictureEditor.pas',
+  FR_GroupBandEditor in '..\source\FR_GroupBandEditor.pas',
+  FR_hilit in '..\source\FR_hilit.pas',
+  FR_InsertFields in '..\source\FR_InsertFields.pas',
+  FR_Inspector in '..\source\FR_Inspector.pas',
+  FR_Interpreter in '..\source\FR_Interpreter.pas',
+  FR_NewReport in '..\source\FR_NewReport.pas',
+  FR_PageOptions in '..\source\FR_PageOptions.pas',
+  FR_PrintDialog in '..\source\FR_PrintDialog.pas',
+  FR_Progress in '..\source\FR_Progress.pas',
+  FR_Shape in '..\source\FR_Shape.pas',
+  FR_Search in '..\source\FR_Search.pas',
+  FR_Template in '..\source\FR_Template.pas',
+  FR_Utils in '..\source\FR_Utils.pas',
+  FR_Variable in '..\source\FR_Variable.pas',
+  FR_Vared in '..\source\FR_Vared.pas',
+  FR_BandsEditor in '..\source\FR_BandsEditor.pas',
+  FR_Preview in '..\source\FR_Preview.pas',
+  FR_DocOptions in '..\source\FR_DocOptions.pas',
+  FR_Dock in '..\source\FR_Dock.pas',
+  FR_PrintGrid in '..\source\FR_PrintGrid.pas';
+
+end.

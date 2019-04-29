@@ -1,0 +1,9 @@
+Return to English word
+GnuText gettext for translating
+Full RightToLeft Support
+Convert Help to CHM
+Replace frToolbar with Standard one
+Add delphi chart
+frf Extension to Multipy extensions
+Support FreePascal instead of CLX
+Suppor GnuGetText files
