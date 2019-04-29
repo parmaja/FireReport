@@ -133,7 +133,6 @@
         <DCCReference Include="..\source\FR_Format.pas"/>
         <DCCReference Include="..\source\FR_PictureEditor.pas"/>
         <DCCReference Include="..\source\FR_GroupBandEditor.pas"/>
-        <DCCReference Include="..\source\FR_hilit.pas"/>
         <DCCReference Include="..\source\FR_InsertFields.pas"/>
         <DCCReference Include="..\source\FR_Inspector.pas"/>
         <DCCReference Include="..\source\FR_Interpreter.pas"/>

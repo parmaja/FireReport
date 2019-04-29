@@ -465,10 +465,6 @@ uses
   FR_BandType, FR_Utils, FR_GroupBandEditor, FR_About, FR_InsertFields, FR_Parser, FR_DBDataset,
   Registry, DB;
 
-type
-  THackView = class(TfrView)
-  end;
-
 procedure frSetGlyph(frDesigner:TfrDesignerForm; Color: TColor; sb: TSpeedButton; n: Integer);
 var
   b: TBitmap;
@@ -1049,6 +1045,7 @@ var
     FDesigner.Page.Objects.Add(frCreateObject(FDesigner.Report, ot, ''));
     t := FDesigner.Page.Objects.Last as TfrView;
   end;
+
   procedure CreateSection;
   var
     s: string;
@@ -1066,7 +1063,7 @@ var
         s[Pos(' ', s) + 1] := UpCase(s[Pos(' ', s) + 1]);
         Delete(s, Pos(' ', s), 1);
       end;
-      THackView(t).BaseName := s;
+      t.BaseName := s;
       FDesigner.SendBandsToDown;
     end;
     frBandTypesForm.Free;

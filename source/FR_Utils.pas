@@ -28,7 +28,7 @@ procedure frGetDataSetAndField(Owner:TComponent; ComplexName: String; var DataSe
 function frGetFontStyle(Style: TFontStyles): Integer;
 function frSetFontStyle(Style: Integer): TFontStyles;
 function frFindComponent(Owner: TComponent; Name: String): TComponent;
-procedure frGetComponents(Owner: TComponent; ClassRef: TClass; List: TStrings; Skip: TComponent; Whole: Boolean);
+procedure frGetComponents(Owner: TComponent; ClassRef: TClass; List: TStrings; Skip: TComponent);
 function frGetWindowsVersion: String;
 
 function frIsBlob(Field: TField): Boolean;
@@ -260,7 +260,7 @@ begin
   end;
 end;
 
-procedure frGetComponents(Owner: TComponent; ClassRef: TClass; List: TStrings; Skip: TComponent; Whole: Boolean);
+procedure frGetComponents(Owner: TComponent; ClassRef: TClass; List: TStrings; Skip: TComponent);
 var
   i: Integer;
   procedure EnumComponents(f: TComponent);
@@ -279,15 +279,11 @@ var
   end;
 begin
   List.Clear;
-  if Whole then
-  begin
-    for i := 0 to Screen.FormCount - 1 do
-      EnumComponents(Screen.Forms[i]);
-    for i := 0 to Screen.DataModuleCount - 1 do
-      EnumComponents(Screen.DataModules[i])
-  end
-  else
-    EnumComponents(Owner);
+  EnumComponents(Owner);
+{ for i := 0 to Screen.FormCount - 1 do
+    EnumComponents(Screen.Forms[i]);
+  for i := 0 to Screen.DataModuleCount - 1 do
+    EnumComponents(Screen.DataModules[i])}
 end;
 
 function frGetWindowsVersion: String;

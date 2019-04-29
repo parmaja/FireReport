@@ -49,7 +49,7 @@ uses
 procedure TfrInsertFieldsForm.FormShow(Sender: TObject);
 begin
   DataSet := nil;
-  frGetComponents(frDesigner.Report.Owner, TDataSet, DatasetCB.Items, nil, frDesigner.Report.WholeDatasources);
+  frGetComponents(frDesigner.Report.Owner, TDataSet, DatasetCB.Items, nil);
   if DatasetCB.Items.Count > 0 then
     DatasetCB.ItemIndex := 0;
   GetFields;

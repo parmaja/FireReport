@@ -156,7 +156,6 @@ type
   protected
     SaveX, SaveY, SaveDX, SaveDY: Integer;
     SaveFW: Single;
-    BaseName: string;
     Canvas: TCanvas;
     DRect: TRect;
     gapx, gapy: Integer;
@@ -173,6 +172,7 @@ type
     procedure OnHook(View: TfrView); virtual;
   public
     Name: string;
+    BaseName: string;
     Parent: TfrBand;
     ID: Integer;
     Typ: Byte;
@@ -564,7 +564,6 @@ type
     FDocMode: TDocMode;
     FOnLoadFromFile: TFileEvent;
     FOnSaveToFile: TFileEvent;
-    FWholeDatasources: Boolean; // current mode
     function FormatValue(V: Variant; Format: Integer;
       const FormatStr: string): string;
     procedure OnGetParsFunction(const name: string; p1, p2, p3: Variant;
@@ -649,7 +648,6 @@ type
     property ReportType: TfrReportType read FReportType write FReportType default rtSimple;
     property ShowProgress: Boolean read FShowProgress write FShowProgress default True;
     property Title: string read FTitle write FTitle;
-    property WholeDatasources: Boolean read FWholeDatasources write FWholeDatasources default False;
     property OnBeginDoc: TBeginDocEvent read FOnBeginDoc write FOnBeginDoc;
     property OnEndDoc: TEndDocEvent read FOnEndDoc write FOnEndDoc;
     property OnBeginPage: TBeginPageEvent read FOnBeginPage write FOnBeginPage;

@@ -106,7 +106,7 @@ end;
 
 procedure TfrVBandEditorForm.FillCombo;
 begin
-  frGetComponents(frDesigner.Report.Owner, TfrDataset, CB1.Items, nil, frDesigner.Report.WholeDatasources);
+  frGetComponents(frDesigner.Report.Owner, TfrDataset, CB1.Items, nil);
   CB1.Items.Insert(0, 'Virtual Dataset');
   CB1.Items.Insert(0, '[None]');
 end;

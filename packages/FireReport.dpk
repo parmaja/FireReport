@@ -62,7 +62,6 @@ contains
   FR_Format in '..\source\FR_Format.pas',
   FR_PictureEditor in '..\source\FR_PictureEditor.pas',
   FR_GroupBandEditor in '..\source\FR_GroupBandEditor.pas',
-  FR_hilit in '..\source\FR_hilit.pas',
   FR_InsertFields in '..\source\FR_InsertFields.pas',
   FR_Inspector in '..\source\FR_Inspector.pas',
   FR_Interpreter in '..\source\FR_Interpreter.pas',

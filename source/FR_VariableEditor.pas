@@ -190,7 +190,7 @@ var
   s: TStringList;
 begin
   s := TStringList.Create;
-  frGetComponents(frDesigner.Report.Owner, TDataSet, s, nil, frDesigner.Report.WholeDatasources);
+  frGetComponents(frDesigner.Report.Owner, TDataSet, s, nil);
   s.Sort;
   s.Add('Other');
   s.Add('FR variables');

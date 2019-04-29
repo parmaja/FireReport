@@ -65,7 +65,7 @@ var
   s: TStringList;
 begin
   s := TStringList.Create;             
-  frGetComponents(frDesigner.Report.Owner, TDataSet, s, nil, frDesigner.Report.WholeDatasources);
+  frGetComponents(frDesigner.Report.Owner, TDataSet, s, nil);
   s.Sort;
   ValCombo.Items.Assign(s);
   s.Free;

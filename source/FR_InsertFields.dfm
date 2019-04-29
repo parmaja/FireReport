@@ -19,7 +19,7 @@ object frInsertFieldsForm: TfrInsertFieldsForm
   TextHeight = 13
   object Label1: TLabel
     Left = 4
-    Top = 4
+    Top = 6
     Width = 104
     Height = 13
     Caption = '&Available datasources'
@@ -27,9 +27,9 @@ object frInsertFieldsForm: TfrInsertFieldsForm
   end
   object FieldsL: TListBox
     Left = 4
-    Top = 44
+    Top = 46
     Width = 145
-    Height = 173
+    Height = 171
     HelpContext = 106
     ItemHeight = 13
     MultiSelect = True
@@ -37,7 +37,7 @@ object frInsertFieldsForm: TfrInsertFieldsForm
   end
   object DatasetCB: TComboBox
     Left = 4
-    Top = 20
+    Top = 22
     Width = 145
     Height = 21
     HelpContext = 97
