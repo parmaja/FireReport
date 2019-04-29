@@ -1,7 +1,6 @@
 package FireReport;
 
 {$R *.res}
-{$R *.otares}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
 {$ASSERTIONS ON}
@@ -80,7 +79,6 @@ contains
   FR_BandsEditor in '..\source\FR_BandsEditor.pas',
   FR_Preview in '..\source\FR_Preview.pas',
   FR_DocOptions in '..\source\FR_DocOptions.pas',
-  FR_Dock in '..\source\FR_Dock.pas',
-  FR_PrintGrid in '..\source\FR_PrintGrid.pas';
+  FR_Dock in '..\source\FR_Dock.pas';
 
 end.

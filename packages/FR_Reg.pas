@@ -23,7 +23,7 @@ uses
   DesignIntf, DesignEditors, DesignWindows, DsnConst,
   FR_Classes, FR_Dataset, FR_DBDataset,
   FR_CheckBox, FR_Shape, FR_Barcodes, FR_BarcodeUtils,
-  FR_Design, FR_Preview, FR_Dock,
+  FR_Design, FR_Preview,
   FR_E_TXT, FR_E_RTF, FR_E_CSV, FR_E_HTM, FR_Consts;
 
 {-----------------------------------------------------------------------}
@@ -59,10 +59,7 @@ end;
 {-----------------------------------------------------------------------}
 procedure Register;
 begin
-  RegisterComponents('FireReport',
-    [TfrReport, TfrDBDataSet, TfrUserDataset, TfrOLEObject, TfrCheckBoxObject,
-     TfrShapeObject, TfrBarcodeObject, TfrTextExport, TfrRTFExport, TfrCSVExport,
-     TfrHTMExport,  TfrDesigner,  TfrPreview]);
+  RegisterComponents('FireReport', [TfrReport, TfrDBDataSet, TfrUserDataset, TfrDesigner,  TfrPreview]);
   RegisterComponentEditor(TfrReport, TfrRepEditor);
 end;
 

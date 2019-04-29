@@ -1048,7 +1048,7 @@ end;
 procedure FinalProc;
 begin
   DestroyToolbarList;
-  FloatingToolBars.Free;
+  FreeAndNil(FloatingToolBars);
 end;
 
 initialization
