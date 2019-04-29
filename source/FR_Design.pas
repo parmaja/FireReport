@@ -461,7 +461,7 @@ implementation
 
 uses
   FR_PageOptions, FR_PictureEditor, FR_Template, FR_NewReport, FR_DesignOptions, FR_Consts,
-  FR_Printer, FR_Hilit, FR_Fields, FR_DocOptions, FR_VariableEditor, FR_BandEditor, FR_BandsEditor,
+  FR_Printer, FR_Fields, FR_DocOptions, FR_VariableEditor, FR_BandEditor, FR_BandsEditor,
   FR_BandType, FR_Utils, FR_GroupBandEditor, FR_About, FR_InsertFields, FR_Parser, FR_DBDataset,
   Registry, DB;
 

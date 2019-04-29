@@ -164,19 +164,19 @@ object frDesignerForm: TfrDesignerForm
         Control = StandardPnl
         ImageIndex = -1
         MinHeight = 22
-        Width = 633
+        Width = 638
       end
       item
         Control = TextPnl
         ImageIndex = -1
         MinHeight = 23
-        Width = 633
+        Width = 638
       end
       item
         Control = RectanglePnl
         ImageIndex = -1
         MinHeight = 22
-        Width = 633
+        Width = 638
       end>
     FixedSize = True
     Images = ToolbarImages
@@ -954,7 +954,7 @@ object frDesignerForm: TfrDesignerForm
         Control = ObjectsPnl
         ImageIndex = -1
         MinHeight = 24
-        Width = 332
+        Width = 146
       end>
     Vertical = True
     object ObjectsPnl: TToolBar
@@ -1047,7 +1047,7 @@ object frDesignerForm: TfrDesignerForm
         Control = AlignmentPnl
         ImageIndex = -1
         MinHeight = 23
-        Width = 332
+        Width = 337
       end>
     Vertical = True
     object AlignmentPnl: TToolBar
@@ -1395,7 +1395,7 @@ object frDesignerForm: TfrDesignerForm
     Left = 353
     Top = 203
     Bitmap = {
-      494C01010200050018000F000F00FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101020005001C000F000F00FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       00000000000036000000280000003C0000000F0000000100200000000000100E
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1523,7 +1523,7 @@ object frDesignerForm: TfrDesignerForm
     Left = 382
     Top = 263
     Bitmap = {
-      494C010101000500180010000E00FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101010005001C0010000E00FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000000E0000000100200000000000000E
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1663,7 +1663,7 @@ object frDesignerForm: TfrDesignerForm
     Left = 270
     Top = 196
     Bitmap = {
-      494C010136003B00180010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010136003B001C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000E0000000010020000000000000E0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
